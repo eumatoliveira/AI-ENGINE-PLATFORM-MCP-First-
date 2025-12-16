@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Engine Platform - MCP-First Intelligence</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">🧠</div>
+          <span class="logo-text">AI Engine</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Dashboard</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🎯</span>
+          <span class="nav-text">MCP Control</span>
+          <span class="badge">v3.2</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">📚</span>
+          <span class="nav-text">RAG Manager</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🤖</span>
+          <span class="nav-text">Agents</span>
+          <span class="badge success">3 active</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🔄</span>
+          <span class="nav-text">LangGraph</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🔧</span>
+          <span class="nav-text">FT-Ops</span>
+          <span class="badge warning">2 jobs</span>
+        </a>
+        <a href="#" class="nav-item">
+          <span class="nav-icon">🛡️</span>
+          <span class="nav-text">Security</span>
+          <span class="badge success">97/100</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">M</div>
+          <div class="user-info">
+            <div class="user-name">Matheus</div>
+            <div class="user-role">Admin</div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Header -->
+      <header class="header">
+        <div class="header-left">
+          <h1 class="page-title" id="pageTitle">Dashboard Overview</h1>
+          <p class="page-subtitle" id="pageSubtitle">
+            Self-improving AI infrastructure in real-time
+          </p>
+        </div>
+        <div class="header-right" id="headerActions">
+          <button class="btn btn-secondary" id="btnExport">
+            <span>📥</span>
+            Export Data
+          </button>
+          <button class="btn btn-primary" id="btnNewAgent">
+            <span>➕</span>
+            New Agent
+          </button>
+        </div>
+      </header>
+
+            <span class="stat-icon">🧠</span>
+            <span class="stat-trend up">↑ 12%</span>
+          </div>
+          <div class="stat-value">0.87</div>
+          <div class="stat-label">MCP Performance</div>
+          <div class="stat-footer">
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 87%"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-icon">📚</span>
+            <span class="stat-trend down">↓ 3%</span>
+          </div>
+          <div class="stat-value">4.2%</div>
+          <div class="stat-label">Hallucination Rate</div>
+          <div class="stat-footer">
+            <span class="stat-meta">Target: < 5%</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-icon">🤖</span>
+            <span class="stat-trend up">↑ 8%</span>
+          </div>
+          <div class="stat-value">83%</div>
+          <div class="stat-label">Agent Success Rate</div>
+          <div class="stat-footer">
+            <span class="stat-meta">1,247 tasks completed</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-header">
+            <span class="stat-icon">🛡️</span>
+            <span class="stat-trend neutral">→</span>
+          </div>
+          <div class="stat-value">97/100</div>
+          <div class="stat-label">Security Score</div>
+          <div class="stat-footer">
+            <span class="stat-meta">OWASP compliant</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Grid -->
+      <div class="content-grid">
+        <!-- MCP Evolution Chart -->
+        <div class="card card-large">
+          <div class="card-header">
+            <h3 class="card-title">MCP Prompt Evolution</h3>
+            <div class="card-actions">
+              <button class="btn-icon">📊</button>
+              <button class="btn-icon">⚙️</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <canvas id="mcpChart"></canvas>
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color" style="background: #6366f1"></span>
+                <span>Overall Score</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: #ec4899"></span>
+                <span>Hallucination Rate</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color" style="background: #10b981"></span>
+                <span>User Satisfaction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active Agents -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Active Agents</h3>
+            <span class="badge success" id="agentCounter">3 running</span>
+          </div>
+          <div class="card-body">
+            <div class="agent-list" id="agentList">
+              <div class="agent-item" data-agent-id="doc-agent-1">
+                <div class="agent-icon running">🤖</div>
+                <div class="agent-info">
+                  <div class="agent-name">DocumentationAgent</div>
+                  <div class="agent-status">Step 5/7 - Writing examples</div>
+                  <div class="agent-progress">
+                    <div class="progress-bar small">
+                      <div class="progress-fill" style="width: 71%"></div>
+                    </div>
+                    <span class="progress-text">71%</span>
+                  </div>
+                </div>
+                <div class="agent-time">4m 32s</div>
+                <div class="agent-actions">
+                  <button class="btn-icon-action btn-pause" title="Pause Agent" data-agent-id="doc-agent-1">
+                    <span>⏸️</span>
+                  </button>
+                  <button class="btn-icon-action btn-delete" title="Delete Agent" data-agent-id="doc-agent-1">
+                    <span>🗑️</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="agent-item" data-agent-id="review-agent-2">
+                <div class="agent-icon running">🤖</div>
+                <div class="agent-info">
+                  <div class="agent-name">CodeReviewAgent</div>
+                  <div class="agent-status">Step 3/5 - Checking style</div>
+                  <div class="agent-progress">
+                    <div class="progress-bar small">
+                      <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <span class="progress-text">60%</span>
+                  </div>
+                </div>
+                <div class="agent-time">2m 15s</div>
+                <div class="agent-actions">
+                  <button class="btn-icon-action btn-pause" title="Pause Agent" data-agent-id="review-agent-2">
+                    <span>⏸️</span>
+                  </button>
+                  <button class="btn-icon-action btn-delete" title="Delete Agent" data-agent-id="review-agent-2">
+                    <span>🗑️</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="agent-item" data-agent-id="test-agent-3">
+                <div class="agent-icon warning">🤖</div>
+                <div class="agent-info">
+                  <div class="agent-name">TestGenerationAgent</div>
+                  <div class="agent-status">Retrying (attempt 2/3)</div>
+                  <div class="agent-progress">
+                    <div class="progress-bar small warning">
+                      <div class="progress-fill" style="width: 80%"></div>
+                    </div>
+                    <span class="progress-text">80%</span>
+                  </div>
+                </div>
+                <div class="agent-time">6m 48s</div>
+                <div class="agent-actions">
+                  <button class="btn-icon-action btn-pause" title="Pause Agent" data-agent-id="test-agent-3">
+                    <span>⏸️</span>
+                  </button>
+                  <button class="btn-icon-action btn-delete" title="Delete Agent" data-agent-id="test-agent-3">
+                    <span>🗑️</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Empty state (hidden by default) -->
+            <div class="agent-empty" id="agentEmpty" style="display: none;">
+              <div class="empty-icon">🤖</div>
+              <div class="empty-title">No active agents</div>
+              <div class="empty-text">Create a new agent to get started</div>
+              <button class="btn btn-primary" onclick="navigateTo('agents')">Create Agent</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- FT-Ops Pipeline -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">FT-Ops Pipeline</h3>
+            <span class="badge warning">2 active</span>
+          </div>
+          <div class="card-body">
+            <div class="ftops-list">
+              <div class="ftops-item">
+                <div class="ftops-header">
+                  <span class="ftops-icon">🔄</span>
+                  <div class="ftops-info">
+                    <div class="ftops-name">code_generation_ft</div>
+                    <div class="ftops-meta">gpt-3.5-turbo • 500 examples</div>
+                  </div>
+                  <span class="badge success">Training</span>
+                </div>
+                <div class="ftops-progress">
+                  <div class="progress-bar">
+                    <div
+                      class="progress-fill animated"
+                      style="width: 67%"
+                    ></div>
+                  </div>
+                  <span class="ftops-status">Epoch 2/3 • ETA 15 min</span>
+                </div>
+              </div>
+
+              <div class="ftops-item">
+                <div class="ftops-header">
+                  <span class="ftops-icon">✅</span>
+                  <div class="ftops-info">
+                    <div class="ftops-name">summarization_ft</div>
+                    <div class="ftops-meta">gpt-3.5-turbo • Canary 10%</div>
+                  </div>
+                  <span class="badge success">Deployed</span>
+                </div>
+                <div class="ftops-metrics">
+                  <div class="metric-item">
+                    <span class="metric-label">Accuracy</span>
+                    <span class="metric-value success">+8%</span>
+                  </div>
+                  <div class="metric-item">
+                    <span class="metric-label">Latency</span>
+                    <span class="metric-value success">-0.3s</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Security Dashboard -->
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Security Posture</h3>
+            <span class="badge success">97/100</span>
+          </div>
+          <div class="card-body">
+            <div class="security-score">
+              <div class="score-circle">
+                <svg viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" r="45" class="score-bg"></circle>
+                  <circle
+                    cx="50"
+                    cy="50"
+                    r="45"
+                    class="score-fill"
+                    style="stroke-dashoffset: 17"
+                  ></circle>
+                </svg>
+                <div class="score-text">97</div>
+              </div>
+              <div class="score-details">
+                <div class="score-item">
+                  <span class="score-label">OWASP Coverage</span>
+                  <span class="score-value">10/10</span>
+                </div>
+                <div class="score-item">
+                  <span class="score-label">Auto-fixes</span>
+                  <span class="score-value">2 pending</span>
+                </div>
+                <div class="score-item">
+                  <span class="score-label">Critical Issues</span>
+                  <span class="score-value success">0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card card-large">
+          <div class="card-header">
+            <h3 class="card-title">Recent Activity</h3>
+            <button class="btn-text">View all</button>
+          </div>
+          <div class="card-body">
+            <div class="activity-list">
+              <div class="activity-item">
+                <div class="activity-icon success">✓</div>
+                <div class="activity-content">
+                  <div class="activity-title">
+                    MCP refined prompt "rag_strategy"
+                  </div>
+                  <div class="activity-meta">
+                    Version 3.2 → 3.3 • +5% performance
+                  </div>
+                </div>
+                <div class="activity-time">2 min ago</div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon warning">!</div>
+                <div class="activity-content">
+                  <div class="activity-title">
+                    Security test failed: SQL injection defense
+                  </div>
+                  <div class="activity-meta">Auto-fix PR created (#142)</div>
+                </div>
+                <div class="activity-time">15 min ago</div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon success">✓</div>
+                <div class="activity-content">
+                  <div class="activity-title">
+                    Agent "DocumentationAgent" completed task
+                  </div>
+                  <div class="activity-meta">
+                    Created 2 files • 100% success
+                  </div>
+                </div>
+                <div class="activity-time">1 hour ago</div>
+              </div>
+
+              <div class="activity-item">
+                <div class="activity-icon info">ℹ</div>
+                <div class="activity-content">
+                  <div class="activity-title">
+                    FT-Ops triggered for "code_generation"
+                  </div>
+                  <div class="activity-meta">
+                    Dataset: 500 examples • Training started
+                  </div>
+                </div>
+            <div class="activity-time">2 hours ago</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        
+        <!-- MCP Control Page -->
+        <div class="page-content" id="page-mcp" style="display: none;">
+            <div class="content-grid">
+                <div class="card card-large">
+                    <div class="card-header">
+                        <h3 class="card-title">Prompt Registry</h3>
+                        <button class="btn-primary-sm" id="btnNewPrompt">
+                            <span>➕</span>
+                            New Prompt
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="prompt-list">
+                            <div class="prompt-item">
+                                <div class="prompt-header">
+                                    <div class="prompt-info">
+                                        <div class="prompt-name">rag_strategy</div>
+                                        <div class="prompt-meta">Current: v3.2 • Created 2024-01-15</div>
+                                    </div>
+                                    <span class="badge success">Score: 0.87</span>
+                                </div>
+                                <div class="prompt-stats">
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Executions</span>
+                                        <span class="stat-mini-value">1,247</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Success Rate</span>
+                                        <span class="stat-mini-value success">92%</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Hallucination</span>
+                                        <span class="stat-mini-value success">4.2%</span>
+                                    </div>
+                                </div>
+                                <div class="prompt-actions">
+                                    <button class="btn-text">View History</button>
+                                    <button class="btn-text">Diff Viewer</button>
+                                    <button class="btn-text">A/B Test</button>
+                                    <button class="btn-text warning">Rollback</button>
+                                </div>
+                            </div>
+                            
+                            <div class="prompt-item">
+                                <div class="prompt-header">
+                                    <div class="prompt-info">
+                                        <div class="prompt-name">code_generation</div>
+                                        <div class="prompt-meta">Current: v2.8 • Created 2024-01-10</div>
+                                    </div>
+                                    <span class="badge success">Score: 0.82</span>
+                                </div>
+                                <div class="prompt-stats">
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Executions</span>
+                                        <span class="stat-mini-value">892</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Success Rate</span>
+                                        <span class="stat-mini-value success">88%</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Hallucination</span>
+                                        <span class="stat-mini-value success">3.1%</span>
+                                    </div>
+                                </div>
+                                <div class="prompt-actions">
+                                    <button class="btn-text">View History</button>
+                                    <button class="btn-text">Diff Viewer</button>
+                                    <button class="btn-text">A/B Test</button>
+                                    <button class="btn-text warning">Rollback</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Performance Metrics</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="metrics-list">
+                            <div class="metric-row">
+                                <span class="metric-label">Average Score</span>
+                                <span class="metric-value">0.85</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Total Executions</span>
+                                <span class="metric-value">2,139</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Active Prompts</span>
+                                <span class="metric-value">12</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Refinements (30d)</span>
+                                <span class="metric-value">8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- RAG Manager Page -->
+        <div class="page-content" id="page-rag" style="display: none;">
+            <div class="content-grid">
+                <div class="card card-large">
+                    <div class="card-header">
+                        <h3 class="card-title">Document Library</h3>
+                        <button class="btn-primary-sm" id="btnUploadDoc">
+                            <span>📤</span>
+                            Upload Document
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="document-list">
+                            <div class="document-item">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <div class="document-name">Technical Documentation.pdf</div>
+                                    <div class="document-meta">1,247 chunks • Indexed 2024-01-15</div>
+                                </div>
+                                <div class="document-stats">
+                                    <span class="stat-badge">842 queries</span>
+                                    <span class="stat-badge success">98% accuracy</span>
+                                </div>
+                            </div>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <div class="document-name">API Reference.md</div>
+                                    <div class="document-meta">892 chunks • Indexed 2024-01-12</div>
+                                </div>
+                                <div class="document-stats">
+                                    <span class="stat-badge">634 queries</span>
+                                    <span class="stat-badge success">96% accuracy</span>
+                                </div>
+                            </div>
+                            
+                            <div class="document-item">
+                                <div class="document-icon">📄</div>
+                                <div class="document-info">
+                                    <div class="document-name">Code Examples.txt</div>
+                                    <div class="document-meta">456 chunks • Indexed 2024-01-10</div>
+                                </div>
+                                <div class="document-stats">
+                                    <span class="stat-badge">321 queries</span>
+                                    <span class="stat-badge success">94% accuracy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">RAG Configuration</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="config-list">
+                            <div class="config-item">
+                                <label>Chunk Size</label>
+                                <input type="number" value="512" class="config-input">
+                            </div>
+                            <div class="config-item">
+                                <label>Overlap</label>
+                                <input type="number" value="128" class="config-input">
+                            </div>
+                            <div class="config-item">
+                                <label>Top K</label>
+                                <input type="number" value="5" class="config-input">
+                            </div>
+                            <div class="config-item">
+                                <label>Confidence Threshold</label>
+                                <input type="number" step="0.01" value="0.75" class="config-input">
+                            </div>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Save Configuration</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Agents Page -->
+        <div class="page-content" id="page-agents" style="display: none;">
+            <div class="content-grid">
+                <div class="card card-large">
+                    <div class="card-header">
+                        <h3 class="card-title">Agent Templates</h3>
+                        <button class="btn-primary-sm" id="btnCreateAgent">
+                            <span>🤖</span>
+                            Create Agent
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="template-grid">
+                            <div class="template-card">
+                                <div class="template-icon">📝</div>
+                                <div class="template-name">Documentation Agent</div>
+                                <div class="template-desc">Generates comprehensive documentation from code</div>
+                                <button class="btn btn-secondary">Use Template</button>
+                            </div>
+                            
+                            <div class="template-card">
+                                <div class="template-icon">🔍</div>
+                                <div class="template-name">Code Review Agent</div>
+                                <div class="template-desc">Reviews code for best practices and bugs</div>
+                                <button class="btn btn-secondary">Use Template</button>
+                            </div>
+                            
+                            <div class="template-card">
+                                <div class="template-icon">🧪</div>
+                                <div class="template-name">Test Generation Agent</div>
+                                <div class="template-desc">Creates unit tests for existing code</div>
+                                <button class="btn btn-secondary">Use Template</button>
+                            </div>
+                            
+                            <div class="template-card">
+                                <div class="template-icon">🔧</div>
+                                <div class="template-name">Refactoring Agent</div>
+                                <div class="template-desc">Improves code structure and quality</div>
+                                <button class="btn btn-secondary">Use Template</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- LangGraph Page -->
+        <div class="page-content" id="page-langgraph" style="display: none;">
+            <div class="content-grid">
+                <div class="card card-large">
+                    <div class="card-header">
+                        <h3 class="card-title">Workflow Library</h3>
+                        <button class="btn-primary-sm" id="btnNewWorkflow">
+                            <span>➕</span>
+                            New Workflow
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="workflow-list">
+                            <div class="workflow-item">
+                                <div class="workflow-header">
+                                    <div class="workflow-info">
+                                        <div class="workflow-name">RAG with Auto-Retry</div>
+                                        <div class="workflow-meta">7 nodes • Created 2024-01-15</div>
+                                    </div>
+                                    <span class="badge success">Active</span>
+                                </div>
+                                <div class="workflow-stats">
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Executions</span>
+                                        <span class="stat-mini-value">342</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Success Rate</span>
+                                        <span class="stat-mini-value success">95%</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Avg Duration</span>
+                                        <span class="stat-mini-value">2.3s</span>
+                                    </div>
+                                </div>
+                                <div class="workflow-actions">
+                                    <button class="btn-text">Edit</button>
+                                    <button class="btn-text">Visualize</button>
+                                    <button class="btn-text">Execute</button>
+                                </div>
+                            </div>
+                            
+                            <div class="workflow-item">
+                                <div class="workflow-header">
+                                    <div class="workflow-info">
+                                        <div class="workflow-name">Multi-Agent Collaboration</div>
+                                        <div class="workflow-meta">12 nodes • Created 2024-01-12</div>
+                                    </div>
+                                    <span class="badge success">Active</span>
+                                </div>
+                                <div class="workflow-stats">
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Executions</span>
+                                        <span class="stat-mini-value">156</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Success Rate</span>
+                                        <span class="stat-mini-value success">89%</span>
+                                    </div>
+                                    <div class="stat-mini">
+                                        <span class="stat-mini-label">Avg Duration</span>
+                                        <span class="stat-mini-value">8.7s</span>
+                                    </div>
+                                </div>
+                                <div class="workflow-actions">
+                                    <button class="btn-text">Edit</button>
+                                    <button class="btn-text">Visualize</button>
+                                    <button class="btn-text">Execute</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- FT-Ops Page -->
+        <div class="page-content" id="page-ftops" style="display: none;">
+            <div class="content-grid">
+                <div class="card card-large">
+                    <div class="card-header">
+                        <h3 class="card-title">Training Jobs</h3>
+                        <button class="btn-primary-sm" id="btnNewJob">
+                            <span>🚀</span>
+                            Start Training
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="jobs-list">
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <span class="job-icon">🔄</span>
+                                    <div class="job-info">
+                                        <div class="job-name">code_generation_ft_20240115</div>
+                                        <div class="job-meta">gpt-3.5-turbo • 500 examples • Epoch 2/3</div>
+                                    </div>
+                                    <span class="badge success">Training</span>
+                                </div>
+                                <div class="job-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill animated" style="width: 67%"></div>
+                                    </div>
+                                    <span class="job-status">67% complete • ETA 15 min</span>
+                                </div>
+                            </div>
+                            
+                            <div class="job-item">
+                                <div class="job-header">
+                                    <span class="job-icon">✅</span>
+                                    <div class="job-info">
+                                        <div class="job-name">summarization_ft_20240114</div>
+                                        <div class="job-meta">gpt-3.5-turbo • 450 examples • Deployed</div>
+                                    </div>
+                                    <span class="badge success">Production</span>
+                                </div>
+                                <div class="job-metrics">
+                                    <div class="metric-item">
+                                        <span class="metric-label">Accuracy</span>
+                                        <span class="metric-value success">+8%</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">Latency</span>
+                                        <span class="metric-value success">-0.3s</span>
+                                    </div>
+                                    <div class="metric-item">
+                                        <span class="metric-label">Canary</span>
+                                        <span class="metric-value">10%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Dataset Statistics</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="metrics-list">
+                            <div class="metric-row">
+                                <span class="metric-label">Total Interactions</span>
+                                <span class="metric-value">15,247</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Curated Datasets</span>
+                                <span class="metric-value">8</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Models Trained</span>
+                                <span class="metric-value">12</span>
+                            </div>
+                            <div class="metric-row">
+                                <span class="metric-label">Active Models</span>
+                                <span class="metric-value">3</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Security Page -->
+        <div class="page-content" id="page-security" style="display: none;">
+            <div class="content-grid">
+                <div class="card card-large">
+                    <div class="card-header">
+                        <h3 class="card-title">OWASP Top 10 Coverage</h3>
+                        <button class="btn-primary-sm" id="btnRunTests">
+                            <span>▶️</span>
+                            Run All Tests
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div class="security-list">
+                            <div class="security-item">
+                                <div class="security-header">
+                                    <span class="security-icon success">✓</span>
+                                    <div class="security-info">
+                                        <div class="security-name">A01: Broken Access Control</div>
+                                        <div class="security-meta">15/15 tests passed</div>
+                                    </div>
+                                    <span class="badge success">100%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="security-item">
+                                <div class="security-header">
+                                    <span class="security-icon success">✓</span>
+                                    <div class="security-info">
+                                        <div class="security-name">A03: Injection</div>
+                                        <div class="security-meta">19/20 tests passed</div>
+                                    </div>
+                                    <span class="badge warning">95%</span>
+                                </div>
+                                <div class="security-actions">
+                                    <button class="btn-text warning">1 Auto-fix PR Pending</button>
+                                </div>
+                            </div>
+                            
+                            <div class="security-item">
+                                <div class="security-header">
+                                    <span class="security-icon success">✓</span>
+                                    <div class="security-info">
+                                        <div class="security-name">A07: Authentication Failures</div>
+                                        <div class="security-meta">14/14 tests passed</div>
+                                    </div>
+                                    <span class="badge success">100%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Security Metrics</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="security-score">
+                            <div class="score-circle">
+                                <svg viewBox="0 0 100 100">
+                                    <circle cx="50" cy="50" r="45" class="score-bg"></circle>
+                                    <circle cx="50" cy="50" r="45" class="score-fill" style="stroke-dashoffset: 17"></circle>
+                                </svg>
+                                <div class="score-text">97</div>
+                            </div>
+                            <div class="score-details">
+                                <div class="score-item">
+                                    <span class="score-label">Tests Passed</span>
+                                    <span class="score-value">102/105</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">Auto-fixes</span>
+                                    <span class="score-value">2 pending</span>
+                                </div>
+                                <div class="score-item">
+                                    <span class="score-label">Critical</span>
+                                    <span class="score-value success">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
