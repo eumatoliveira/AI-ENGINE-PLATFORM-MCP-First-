@@ -2,6 +2,8 @@
 
 > **A platform for building, operating, auditing, and evolving AI systems autonomously and robustly**
 
+![print](https://github.com/eumatoliveira/AI-ENGINE-PLATFORM-MCP-First-/blob/main/Screenshot_15.png)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status: In Development](https://img.shields.io/badge/Status-In%20Development-blue.svg)]()
 
